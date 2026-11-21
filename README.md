@@ -28,4 +28,30 @@ The Styrian input specification selects the BEV boundary dated 1 April 2026 and 
 
 Road and water data © OpenStreetMap contributors, ODbL 1.0. Austrian administrative boundaries © BEV. [OSM attribution and licence](https://www.openstreetmap.org/copyright)
 
-See [CHECKPOINT.md](CHECKPOINT.md) for the latest verified result and the next reproducible step.
+## Reproduce the statewide search
+
+Use Python 3.11 or later and GDAL 3.10 or later with the OSM driver. On Windows, run from a QGIS/OSGeo4W shell or pass the full path to `ogr2ogr.exe` with `--ogr2ogr` on the preparation command.
+
+```sh
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python -m analysis.fetch regions/styria.json --raw data/raw
+python -m analysis.prepare regions/styria.json --raw data/raw --work data/working/styria
+python -m analysis.search --work data/working/styria --output results/styria-2026-11-01.json
+```
+
+The solver starts with the bounding rectangle of all land. It recursively subdivides every cell that could beat the best measured land point. If a cell centre is distance *d* from its nearest road, no point in that cell can exceed *d* plus half its diagonal. The saved upper and lower bounds apply to the **distance**. Several locations can achieve almost the same distance. The default stopping tolerance is 1 metre in the selected projected CRS. Mapping accuracy and projection scale have separate effects.
+
+The land mask subtracts mapped permanent water polygons, including lakes, reservoirs and river areas. The road index retains original line geometry and removes duplicate OSM way IDs across country extracts. The input downloads must cover the entire road buffer. The program also checks that the statewide upper bound falls within that buffer.
+
+For another region, supply its polygon, all surrounding road extracts and a suitable local metric CRS. The boundary layer must contain only the target region or its subdivisions. Check the source coverage and projection scale for each new region. Regions spanning a projection discontinuity need an adapted projection and extraction window.
+
+## Optional benchmark comparison
+
+After saving the winners, run the following command. The comparison records the SHA-256 of the discovery file, the road distance at the reference point, the difference in score and the separation between pins. The search module takes no reference coordinates. [Land Steiermark's published coordinates](https://www.landesentwicklung.steiermark.at/cms/dokumente/12702993_141979497/c3213ffa/Miteinander%20im%20Dialog%202024_MayerWeissenbeck.pdf)
+
+```sh
+python -m analysis.compare --work data/working/styria --winners results/styria-2026-11-01.json --lon 14.013503333333333 --lat 47.675835 --output results/styria-comparison.json
+```
+
+See [CHECKPOINT.md](CHECKPOINT.md) for the last verified milestone.

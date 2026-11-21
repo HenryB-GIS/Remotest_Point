@@ -6,6 +6,13 @@
   "boundary_url": "https://data.bev.gv.at/download/Verwaltungsgrenzen/shp/20260401/VGD_Steiermark_20260402.zip",
   "osm_date": "2026-11-01",
   "extracts": ["austria", "slovenia", "hungary"],
+  "download_base": "https://download.geofabrik.de/europe",
+  "sha256": {
+    "VGD_Steiermark_20260402.zip": "047ff0d16f67183c40bf083778b9862b1590ec24bcf61e26239c9da0ab4e2827",
+    "austria-261101.osm.pbf": "aaed361c53be5788e4bc8ae087585cf55a884c92d9858ecd58929617dc91928f",
+    "slovenia-261101.osm.pbf": "49df4e7bb4cd8b66b20619ae66916988ccafc209ffecd3e427ad8d6e2cc57495",
+    "hungary-261101.osm.pbf": "65d0b226d4a0dcbe9760c4ee5d8503b0fb548607abf39d4ce5263d730dc01c0e"
+  },
   "road_buffer_m": 20000,
   "tolerance_m": 1
 }
