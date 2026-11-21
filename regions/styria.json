@@ -1,0 +1,11 @@
+{
+  "name": "Styria",
+  "metric_crs": "EPSG:25833",
+  "boundary_file": "VGD_Steiermark_20260402.zip",
+  "boundary_layer": "VGD_Steiermark",
+  "boundary_url": "https://data.bev.gv.at/download/Verwaltungsgrenzen/shp/20260401/VGD_Steiermark_20260402.zip",
+  "osm_date": "2026-11-01",
+  "extracts": ["austria", "slovenia", "hungary"],
+  "road_buffer_m": 20000,
+  "tolerance_m": 1
+}
