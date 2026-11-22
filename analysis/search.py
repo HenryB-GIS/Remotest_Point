@@ -131,7 +131,7 @@ def run(work, output):
     report = {"inputs": meta, "winners": winners}
     output.parent.mkdir(parents=True, exist_ok=True)
     temp = output.with_suffix(".tmp")
-    temp.write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8")
+    temp.write_text(json.dumps(report, indent=2)+"\n", encoding="utf-8", newline="\n")
     temp.replace(output)
     return report
 

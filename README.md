@@ -2,6 +2,18 @@
 
 This shows a region's point that is farthest from the road network.
 
+The independent statewide search places the default Styrian pin at **47.674647° N, 14.011258° E** in the Totes Gebirge. The nearest qualifying road is **4.812 km** away. Distances use the 1 November 2026 road snapshot.
+
+| Forestry-track rule | Winning coordinates (latitude, longitude) | Nearest road | Statewide upper bound |
+|---|---|---:|---:|
+| A · Require positive track evidence | 47.674647, 14.011258 | 4,811.635 m | 4,812.616 m |
+| B · Also count ungraded tracks (default) | 47.674647, 14.011258 | 4,811.635 m | 4,812.616 m |
+| C · Also count grades 4–5 | 47.675188, 14.006859 | 4,599.069 m | 4,600.003 m |
+
+Ungraded tracks leave the winner unchanged. Counting rough tracks brings a grade-4 ground track within 4,278 m of the original pin. The new winner lies 336 m west-northwest, where a grade-2 gravel track is nearest. The state's maximum falls by 213 m. Under the default rule the nearest way is a grade-3 gravel track. [Default nearest way](https://www.openstreetmap.org/way/81819022) · [Decisive grade-4 way](https://www.openstreetmap.org/way/81819003) · [Nearest way under C](https://www.openstreetmap.org/way/435056110)
+
+After discovery, we measured the published Land Steiermark point against the same roads. It lies 214 m from our default pin and scores 4,638.629 m, or 173 m less. Possible differences in road definitions, dates and geometry remain unresolved. [Saved discovery](results/styria-2026-11-01.json) · [Benchmark comparison](results/styria-comparison.json)
+
 **Where on Styrian land is the straight-line distance to a mapped, driveable surface road greatest?** The search covers the entire region. Roads across administrative borders count. Distances are measured to road centrelines in metres.
 
 ## What counts as a road?

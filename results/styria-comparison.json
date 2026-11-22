@@ -1,0 +1,39 @@
+{
+  "discovery_sha256": "13b7c9089bc93c1e86178898d8ab97a1de01f40feb41712ece496304791c1013",
+  "reference_lonlat": [
+    14.0135033333333,
+    47.675835
+  ],
+  "scenarios": {
+    "A": {
+      "distance_m": 4638.62946654489,
+      "way_id": 81819022,
+      "nearest_lonlat": [
+        14.075284200000002,
+        47.6767029
+      ],
+      "separation_from_winner_m": 214.11710062754474,
+      "winner_advantage_m": 173.00542476959254
+    },
+    "B": {
+      "distance_m": 4638.62946654489,
+      "way_id": 81819022,
+      "nearest_lonlat": [
+        14.075284200000002,
+        47.6767029
+      ],
+      "separation_from_winner_m": 214.11710062754474,
+      "winner_advantage_m": 173.00542476959254
+    },
+    "C": {
+      "distance_m": 4096.382417963757,
+      "way_id": 81819003,
+      "nearest_lonlat": [
+        14.0678406,
+        47.679249
+      ],
+      "separation_from_winner_m": 503.9363931913717,
+      "winner_advantage_m": 502.6865850596705
+    }
+  }
+}
