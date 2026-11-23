@@ -76,6 +76,30 @@ python -m analysis.map_data --work data/working/styria --discovery results/styri
 
 The export verifies discovery provenance and remeasures the saved pins. It constructs the circle in the calculation CRS before converting it for display. It preserves all vertices of the highlighted ways and simplifies surrounding roads for screen display. The geometry is derived from OpenStreetMap, available under ODbL 1.0. Terrain map credit goes to basemap.at. [OpenStreetMap licence](https://www.openstreetmap.org/copyright) · [basemap.at](https://basemap.at/)
 
+## What happens if only one track changes?
+
+After freezing the independent discovery we changed the status of OSM way 81819003, the 712 m grade-4 ground track east of the default winner. Each row is a new search across all Styrian land. These tests use no benchmark coordinates.
+
+| Qualifying road network | Best distance | Winning latitude, longitude | Shift from the default |
+|---|---:|---|---:|
+| B · Default | 4,811.635 m | 47.674647, 14.011258 | 0 m |
+| B plus that one track | 4,612.954 m | 47.695661, 13.862488 | 11.407 km |
+| C except that one track | 4,695.877 m | 47.674942, 14.008893 | 181 m |
+| C · All eligible rough tracks | 4,599.069 m | 47.675188, 14.006859 | 336 m |
+
+Adding that track alone lets a different part of the Totes Gebirge win. Other rough tracks elsewhere affect the ranking too. Removing the disputed track from C recovers only part of the original distance. These four decisions describe scenarios, with no assigned probabilities. [Saved single-track searches](results/styria-one-track.json)
+
+The Austrian administrative map also depicts a line along this track. Every one of 144 samples along the OSM way lay within 18 m of geometry drawn with basemap.at’s shared symbol labelled `12020-Fußweg; 12160`. The match at the critical endpoint was 1.52 m. That supports the presence and alignment of a path. The tile does not distinguish the two underlying codes or establish pickup access. We retain B as the default. [Spatial comparison](results/styria-track-crosscheck.json) · [Datenquelle: basemap.at](https://basemap.at/)
+
+Run both checks against the prepared data with the commands below.
+
+```sh
+python -m analysis.one_track --work data/working/styria --discovery results/styria-2026-11-01.json --way 81819003 --output results/styria-one-track.json
+python -m analysis.check_map_tile --road-file data/working/styria/austria-roads.gpkg --way 81819003 --tile verification/basemap-at/basemap-14-5717-8832.pbf --z 14 --x 8832 --y 5717 --style verification/basemap-at/style-excerpt.json --output results/styria-track-crosscheck.json
+```
+
+The verification folder preserves the decoded vector tile retrieved on 23 November 2026 and the matching zoom-14 style rule. The style excerpt retains class-identification fields. The JSON report records the source URLs and the decoded tile checksum. [Datenquelle: basemap.at](https://basemap.at/) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
 ## What the checks establish
 
 AI assisted with the implementation, documentation and map. Checks against known-answer geometries, the independent segment calculation, a full replay and the later benchmark comparison are documented in [CHECKPOINT.md](CHECKPOINT.md). A 1 m bound describes the numerical search. The source maps, the pickup interpretation and real-world road conditions each have their own uncertainty.

@@ -1,0 +1,23 @@
+{
+  "way_id": 81819003,
+  "metric_crs": "EPSG:25833",
+  "length_m": 711.931573497985,
+  "tile_url": "https://mapsneu.wien.gv.at/basemapv/bmapv/3857/tile/14/5717/8832.pbf",
+  "tile_sha256_decoded": "10677d1cc6908df361a8c79b93f97db4bc5d77f72f1be55e456b9c2ef4412ff3",
+  "style_url": "https://mapsneu.wien.gv.at/basemapvectorneu/root.json",
+  "layer": "GIP_L_GIP_144",
+  "symbol_labels": {
+    "7": [
+      "STRASSENNETZ/GIP_L_GIP_144/12020-Fußweg; 12160"
+    ]
+  },
+  "sample_counts_by_nearest_symbol": {
+    "7": 144
+  },
+  "sample_step_m": 5,
+  "samples": 144,
+  "samples_within_10_m": 128,
+  "samples_within_20_m": 144,
+  "max_sample_gap_m": 17.03485684979505,
+  "osm_end_gap_m": 1.5157419082689647
+}

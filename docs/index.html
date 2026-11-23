@@ -49,7 +49,7 @@
             <button type="button" id="fit" aria-label="Fit the distance circle">Fit</button>
           </div>
           <span id="tileStatus" hidden>Terrain unavailable · saved road geometry shown</span>
-          <span class="credit">Terrain © <a href="https://basemap.at/">basemap.at</a></span>
+          <span class="credit">Grundkarte: <a href="https://basemap.at/">basemap.at</a></span>
         </div>
         <div class="map-key"><span><i class="dot"></i>Winning point</span><span><i class="stroke"></i>Nearest road</span><span><i class="dash"></i>Distance</span>
           <label><input type="checkbox" id="compare"> Published pin</label></div>
@@ -60,7 +60,7 @@
     </section>
     <noscript><p>Interactive layers need JavaScript. The default result and coordinates are printed above. All three results are in the linked repository.</p></noscript>
     <section class="notes" id="method">
-      <div><h2>When does the winner move?</h2><p>Adding ungraded tracks leaves the pin in place. Adding grades 4–5 brings a ground track within 4.278 km of that pin. The winner moves 336 m west-northwest, and the maximum falls to 4.599 km.</p></div>
+      <div><h2>When does the winner move?</h2><p>Ungraded tracks leave the winner in place. Counting all eligible rough tracks moves it 336 m. Counting just the grade-4 track shown in orange under C moves the winner 11.4 km into a different part of the Totes Gebirge, 4.613 km from a road.</p><a href="https://github.com/HenryB-GIS/Remotest_Point#what-happens-if-only-one-track-changes">Explore the single-track test ↗</a></div>
       <div><h2>How we found it</h2><p>We searched 16,333 km² of Styrian land, counting roads across the border. Each rule ran independently and bounded the best possible distance to within one metre. Only then did we compare the published pin, 214 m from our default winner.</p><a href="https://www.landesentwicklung.steiermark.at/cms/dokumente/12702993_141979497/c3213ffa/Miteinander%20im%20Dialog%202024_MayerWeissenbeck.pdf">Land Steiermark benchmark ↗</a></div>
       <div><h2>What counts as a road?</h2><p>The model asks where a forestry pickup could drive in snow-free conditions. Private roads and gated tracks can count. OSM smoothness takes priority over track grade. The distance measures a straight line. The terrain and the legal access needed to reach the pin are separate questions.</p></div>
     </section>

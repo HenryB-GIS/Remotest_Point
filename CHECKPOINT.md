@@ -39,3 +39,11 @@ The classification and statewide-search tests passed again. The imagery review i
 GitHub Pages serves `main` → `/docs`. The desktop browser showed the default 4.812 km result, its map tiles, distance circle and nearest road. On the narrow layout the content width was 375 px with a 348 px map and no horizontal overflow. Selecting C there produced 4.599 km, the grade-4 way link and a 504 m benchmark separation. A local browser check also exercised A, zoom and fit. The BEV topographic link opened at the default pin. A fresh export from the prepared data reproduced the delivered map data byte-for-byte (SHA-256 `315ac7636b2c44c87f40a2f112ebf2a432472249f411cd5c5d6b162ee91e0935`).
 
 **Resume here.** The Styria pilot is published. Its open evidence question is whether the final section of way 81819003 is ordinarily pickup-passable. Evidence about that way can be assessed against the saved A/B/C results. A changed rule or input snapshot calls for a fresh statewide discovery followed by a new comparison. The README contains the commands to run that sequence in another region.
+
+## 6 — Single-track sensitivity and an independent map check · 23 November 2026
+
+The discovery file is unchanged. The two follow-up statewide searches in `results/styria-one-track.json` cite its SHA-256. Adding only way 81819003 to B gave 4,612.954 m and moved the optimum 11.407 km. Removing only that way from C gave 4,695.877 m at a point 181 m from B. The bound widths were 0.933 m and 0.910 m respectively. A segment-by-segment remeasurement reproduced both nearest road IDs and distances within 1 mm. All six existing automated tests passed.
+
+The GIP road layer in the Austrian administrative map follows this OSM track and uses a shared footpath symbol. The reference tile, relevant style excerpt, offsets and rerun commands are saved in the repository. This check supports reporting the default and broad cases separately. Field driveability remains open.
+
+**Resume here.** [The pilot is live](https://henryb-gis.github.io/Remotest_Point/). Use `results/styria-one-track.json` and `results/styria-track-crosscheck.json` for the latest evidence. Both checks are downstream of the frozen discovery. The initial workflow for another region still starts with its land boundary and surrounding roads.

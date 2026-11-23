@@ -1,0 +1,16 @@
+{
+  "layers": [
+    {
+      "id": "STRASSENNETZ/GIP_L_GIP_144/12020-Fußweg; 12160",
+      "source-layer": "GIP_L_GIP_144",
+      "filter": [
+        "==",
+        "_symbol",
+        7
+      ],
+      "minzoom": 14,
+      "maxzoom": 16,
+      "type": "symbol"
+    }
+  ]
+}
