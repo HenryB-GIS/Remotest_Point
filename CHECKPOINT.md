@@ -23,3 +23,11 @@ python -m analysis.check_pins --work data/working/styria --winners results/styri
 ```
 
 Resume from the saved JSON for presentation work. The next milestone is a public map with each road rule, its measured radius, the nearest way and an optional benchmark pin. The coordinate lookups returned `stirrup.employed.deserters` for A/B and `dangerous.leafy.polkas` for C.
+
+## 4 — Interactive Styria map · 23 November 2026
+
+The map in `docs/index.html` reads geometry exported from the checkpoint 3 results. The A/B/C selector updates the radius, full nearest way, coordinates, three-word address, and BEV link. Under C the orange line identifies the grade-4 way that reduces the score of the original pin. The optional purple diamond shows the benchmark after discovery. The map draws surrounding qualifying roads for the selected rule. The terrain background comes from basemap.at.
+
+To resume, open the repository in GitHub Desktop and read this file from the bottom. To reopen the map locally, open `docs/index.html`. The README gives the export command if the saved results change. Reuse prepared inputs for geometry audits. Rebuild them only when their provenance changes. For a new region, begin with a new specification and blind discovery run.
+
+The classification and statewide-search tests passed again. The imagery review is recorded in the README. Field driveability of the decisive grade-4 section remains unresolved. The publication milestone is a successful test of the public URL on desktop and a narrow screen.

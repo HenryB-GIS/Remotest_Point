@@ -63,7 +63,21 @@ For another region, supply its polygon, all surrounding road extracts and a suit
 After saving the winners, run the following command. The comparison records the SHA-256 of the discovery file, the road distance at the reference point, the difference in score and the separation between pins. The search module takes no reference coordinates. [Land Steiermark's published coordinates](https://www.landesentwicklung.steiermark.at/cms/dokumente/12702993_141979497/c3213ffa/Miteinander%20im%20Dialog%202024_MayerWeissenbeck.pdf)
 
 ```sh
-python -m analysis.compare --work data/working/styria --winners results/styria-2026-11-01.json --lon 14.013503333333333 --lat 47.675835 --output results/styria-comparison.json
+python -m analysis.compare --work data/working/styria --winners results/styria-2026-11-01.json --lon 14.0135033333333 --lat 47.675835 --output results/styria-comparison.json
 ```
 
-See [CHECKPOINT.md](CHECKPOINT.md) for the last verified milestone.
+## Explore or rebuild the map
+
+Open `docs/index.html` in a browser to switch road rules or overlay the published point. The page carries the saved road geometry, pin and measured circle locally. The geographic background loads from basemap.at. GitHub Pages serves the same files from the `/docs` folder of `main`.
+
+```sh
+python -m analysis.map_data --work data/working/styria --discovery results/styria-2026-11-01.json --comparison results/styria-comparison.json --output docs/styria-data.js
+```
+
+The export verifies discovery provenance and remeasures the saved pins. It constructs the circle in the calculation CRS before converting it for display. It preserves all vertices of the highlighted ways and simplifies surrounding roads for screen display. The geometry is derived from OpenStreetMap, available under ODbL 1.0. Terrain map credit goes to basemap.at. [OpenStreetMap licence](https://www.openstreetmap.org/copyright) · [basemap.at](https://basemap.at/)
+
+## What the checks establish
+
+AI assisted with the implementation, documentation and map. Checks against known-answer geometries, the independent segment calculation, a full replay and the later benchmark comparison are documented in [CHECKPOINT.md](CHECKPOINT.md). A 1 m bound describes the numerical search. The source maps, the pickup interpretation and real-world road conditions each have their own uncertainty.
+
+An inspection of Austrian orthophotos at the three critical footpoints showed vegetation and shadow at the gravel tracks, and broken, partly open ground at the grade-4 way. The photographs did not establish that a pickup can drive that last section. The three-rule sensitivity result therefore remains the appropriate way to report it. [Grade-3 image](https://mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/17/45737/70660.jpeg) · [Grade-4 image](https://mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/17/45736/70657.jpeg) · [Grade-2 image](https://mapsneu.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/17/45753/70619.jpeg)

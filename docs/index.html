@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c34">
+  <meta name="description" content="A statewide search for the Styrian point farthest from a road. Explore the winning locations under three forestry-road definitions.">
+  <title>Styria · Remotest Point</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="styria-data.js"></script>
+  <script defer src="map.js"></script>
+</head>
+<body>
+  <header><div class="mast"><a class="brand" href="./"><span class="mark" aria-hidden="true">◎</span> Remotest Point</a>
+    <nav><a href="#method">Method</a><a href="https://github.com/HenryB-GIS/Remotest_Point">GitHub ↗</a></nav></div></header>
+  <main>
+    <p class="region">Austria <span>/</span> Styria</p>
+    <h1>How far can you get from a road?</h1>
+    <p class="intro">In Styria, the answer leads into the Totes Gebirge. Explore how the distance changes when rough forestry tracks count as roads.</p>
+    <section class="atlas" aria-label="Interactive Styrian results">
+      <aside>
+        <h2>Distance to the nearest road</h2>
+        <div class="measure" aria-live="polite"><strong id="score">4.812</strong> <span>km</span></div>
+        <fieldset><legend>Which tracks count?</legend>
+          <label><input type="radio" name="rule" value="A"><span>Graded tracks <small>A</small></span></label>
+          <label><input type="radio" name="rule" value="B" checked><span>Include ungraded <small>B · Default</small></span></label>
+          <label><input type="radio" name="rule" value="C"><span>Include rough tracks <small>C</small></span></label>
+        </fieldset>
+        <p id="ruleDetail">Count tracks with pickup-passable smoothness, grades 1–3 and tracks without a usable grade.</p>
+        <div class="location"><h2>Winning point</h2>
+          <p id="coords">47.674647° N, 14.011258° E</p>
+          <a id="words" href="https://what3words.com/stirrup.employed.deserters">///stirrup.employed.deserters</a>
+          <a id="topo" href="https://maps.bev.gv.at/#/center/14.0112583,47.6746467/zoom/14">Open topographic map ↗</a>
+        </div>
+      </aside>
+      <div class="map-column">
+        <div class="map-frame">
+          <svg id="map" role="img" aria-labelledby="map-title map-desc" viewBox="-520 -440 1040 880">
+            <title id="map-title">Winning point and nearest road in the Totes Gebirge</title>
+            <desc id="map-desc">The rust dashed line joins the winning point and the nearest qualifying road. The circle shows the same distance in every direction.</desc>
+            <g id="tiles"></g><g id="context"></g><path id="ring"></path><path id="rough" hidden></path><path id="nearest"></path>
+            <line id="radius"></line><circle id="foot"></circle><circle id="pin"></circle>
+            <path id="benchmark" hidden></path>
+          </svg>
+          <span class="north" aria-label="North is up">↑ N</span>
+          <div class="tools" aria-label="Map controls">
+            <button type="button" id="zoomIn" aria-label="Zoom in">+</button>
+            <button type="button" id="zoomOut" aria-label="Zoom out">−</button>
+            <button type="button" id="fit" aria-label="Fit the distance circle">Fit</button>
+          </div>
+          <span id="tileStatus" hidden>Terrain unavailable · saved road geometry shown</span>
+          <span class="credit">Terrain © <a href="https://basemap.at/">basemap.at</a></span>
+        </div>
+        <div class="map-key"><span><i class="dot"></i>Winning point</span><span><i class="stroke"></i>Nearest road</span><span><i class="dash"></i>Distance</span>
+          <label><input type="checkbox" id="compare"> Published pin</label></div>
+        <p id="refNote" hidden></p>
+        <p class="road-note">Nearest mapped way · <a id="osm" href="https://www.openstreetmap.org/way/81819022">grade-3 gravel track ↗</a></p>
+        <p id="roughNote" class="road-note" hidden><i class="rough-key"></i> The orange track comes closest to the original pin when rough tracks count. <a id="roughLink" href="https://www.openstreetmap.org/way/81819003">Inspect track ↗</a></p>
+      </div>
+    </section>
+    <noscript><p>Interactive layers need JavaScript. The default result and coordinates are printed above. All three results are in the linked repository.</p></noscript>
+    <section class="notes" id="method">
+      <div><h2>When does the winner move?</h2><p>Adding ungraded tracks leaves the pin in place. Adding grades 4–5 brings a ground track within 4.278 km of that pin. The winner moves 336 m west-northwest, and the maximum falls to 4.599 km.</p></div>
+      <div><h2>How we found it</h2><p>We searched 16,333 km² of Styrian land, counting roads across the border. Each rule ran independently and bounded the best possible distance to within one metre. Only then did we compare the published pin, 214 m from our default winner.</p><a href="https://www.landesentwicklung.steiermark.at/cms/dokumente/12702993_141979497/c3213ffa/Miteinander%20im%20Dialog%202024_MayerWeissenbeck.pdf">Land Steiermark benchmark ↗</a></div>
+      <div><h2>What counts as a road?</h2><p>The model asks where a forestry pickup could drive in snow-free conditions. Private roads and gated tracks can count. OSM smoothness takes priority over track grade. The distance measures a straight line. The terrain and the legal access needed to reach the pin are separate questions.</p></div>
+    </section>
+    <footer><span>Roads © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> · 1 Nov 2026<br>Boundary © <a href="https://www.bev.gv.at/">BEV</a> · 1 Apr 2026</span>
+      <a href="https://github.com/HenryB-GIS/Remotest_Point#reproduce-the-statewide-search">Data, code &amp; reproducibility ↗</a></footer>
+  </main>
+</body>
+</html>
