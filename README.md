@@ -1,6 +1,6 @@
 # Remotest Point
 
-This shows a region's point that is farthest from the road network.
+[Open the interactive Styria map](https://henryb-gis.github.io/Remotest_Point/) to compare three definitions of a forestry road and see the route-independent straight-line measurement for each winner.
 
 The independent statewide search places the default Styrian pin at **47.674647° N, 14.011258° E** in the Totes Gebirge. The nearest qualifying road is **4.812 km** away. Distances use the 1 November 2026 road snapshot.
 

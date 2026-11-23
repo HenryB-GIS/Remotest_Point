@@ -31,3 +31,11 @@ The map in `docs/index.html` reads geometry exported from the checkpoint 3 resul
 To resume, open the repository in GitHub Desktop and read this file from the bottom. To reopen the map locally, open `docs/index.html`. The README gives the export command if the saved results change. Reuse prepared inputs for geometry audits. Rebuild them only when their provenance changes. For a new region, begin with a new specification and blind discovery run.
 
 The classification and statewide-search tests passed again. The imagery review is recorded in the README. Field driveability of the decisive grade-4 section remains unresolved. The publication milestone is a successful test of the public URL on desktop and a narrow screen.
+
+## 5 — Published and verified · 23 November 2026
+
+[Live Styria map](https://henryb-gis.github.io/Remotest_Point/) · [Saved discovery and audit](https://github.com/HenryB-GIS/Remotest_Point/commit/c6152205d87117238e2bbed65687751df9209d78) · [Published map implementation](https://github.com/HenryB-GIS/Remotest_Point/commit/c27eeb39b0cf700f90bf3ed50d3a87c895ba5ebc)
+
+GitHub Pages serves `main` → `/docs`. The desktop browser showed the default 4.812 km result, its map tiles, distance circle and nearest road. On the narrow layout the content width was 375 px with a 348 px map and no horizontal overflow. Selecting C there produced 4.599 km, the grade-4 way link and a 504 m benchmark separation. A local browser check also exercised A, zoom and fit. The BEV topographic link opened at the default pin. A fresh export from the prepared data reproduced the delivered map data byte-for-byte (SHA-256 `315ac7636b2c44c87f40a2f112ebf2a432472249f411cd5c5d6b162ee91e0935`).
+
+**Resume here.** The Styria pilot is published. Its open evidence question is whether the final section of way 81819003 is ordinarily pickup-passable. Evidence about that way can be assessed against the saved A/B/C results. A changed rule or input snapshot calls for a fresh statewide discovery followed by a new comparison. The README contains the commands to run that sequence in another region.
